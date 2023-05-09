@@ -30,8 +30,8 @@ int main(void)
     // puts("Binary tree example");
     // bstree_example();
 
-    // puts("AVL Binary tree example");
-    // avltree_example();
+    puts("AVL Binary tree example");
+    avltree_example();
 
     return 0;
 }
@@ -199,24 +199,25 @@ void queue_example()
 
 void avltree_example()
 {
-    struct bbstree bbstree = bbstree_init(5, bstree_compare_int, NULL, bstree_print_int);
+    struct avltree avltree = avltree_init(5, bstree_compare_int, NULL, bstree_print_int);
 
     int data;
-    data = 20;
-    bbstree_insert(&bbstree, &data, sizeof(int));
-    for (int i = 0; i < 100; i++) {
+    data = 15;
+    avltree_insert(&avltree, &data, sizeof(int));
+    for (int i = 0; i < 50; i++) {
         data = rand() % 100;
-        bbstree_insert(&bbstree, &data, sizeof(int));
+        avltree_insert(&avltree, &data, sizeof(int));
     }
 
+    // puts("");
+    // bstree_print(&avltree.bstree, DEPTH_FIRST, NULL);
+    // puts("");
+    // bstree_print(&avltree.bstree, BREADTH_FIRST, bstree_print_int_unspaced);
     puts("");
-    // bstree_print(&bbstree.bstree, DEPTH_FIRST, NULL);
-    bstree_print(&bbstree.bstree, BREADTH_FIRST, bstree_print_int_unspaced);
-    puts("");
-    bstree_print(&bbstree.bstree, VERTICAL_BREADTH_FIRST, bstree_print_int_unspaced);
+    bstree_print(&avltree.bstree, VERTICAL_BREADTH_FIRST, bstree_print_int_unspaced);
     puts("");
 
-    bbstree_destroy(&bbstree);
+    avltree_destroy(&avltree);
 }
 
 

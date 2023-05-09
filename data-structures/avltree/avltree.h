@@ -1,18 +1,17 @@
-#ifndef bbstree_h
-#define bbstree_h
+#ifndef _AVL_TREE_H
+#define _AVL_TREE_H
 
 #include "../bstree/bstree.h"
 
-// Balancing Binary Search Tree
-struct bbstree
+struct avltree
 {
     struct bstree bstree;
 };
 
-int bbstree_insert(struct bbstree *bbstree, void *data, size_t size);
+int avltree_insert(struct avltree *avltree, void *data, size_t size);
 
 // Constructor and destructor
-struct bbstree bbstree_init(int max_depth, int (*compare)(void *d1, void *d2, size_t size), void (*free_data)(void *data), void (*print)(void *data));
-int bbstree_destroy(struct bbstree *bbstree);
+struct avltree avltree_init(int max_depth, int (*compare)(void *d1, void *d2, size_t size), void (*free_data)(void *data), void (*print)(void *data));
+int avltree_destroy(struct avltree *avltree);
 
-#endif /* bbstree_h */
+#endif /* _AVL_TREE_H */
